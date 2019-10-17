@@ -34,6 +34,8 @@
         <gdb_interceptlist>
           <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
         </gdb_interceptlist>
+        <gdb_signals>
+        </gdb_signals>
         <gdb_options>
           <DebugOptions>
           </DebugOptions>
@@ -46,13 +48,69 @@
       <runprofile version="9">
         <runcommandpicklist>
           <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" </runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" -Ra -g 256K -i0 -i1 -i2 -i3 -i4 -i5</runcommandpicklistitem>
+          <runcommandpicklistitem>/home/charon/iozone-3-487.src/iozone3_487/src/current/iozone  -Ra -g 256K -i0 -i1 -i2 -i3 -i4 -i5</runcommandpicklistitem>
         </runcommandpicklist>
-        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <runcommand>/home/charon/iozone-3-487.src/iozone3_487/src/current/iozone  -Ra -g 256K -i0 -i1 -i2 -i3 -i4 -i5</runcommand>
         <rundir>.</rundir>
         <buildfirst>false</buildfirst>
         <terminal-type>0</terminal-type>
         <remove-instrumentation>0</remove-instrumentation>
         <environment>
+          <variable name="LD_PRELOAD"
+                    value="/home/20190917/ioserver/injection_so/dist/Debug/GNU-Linux/libinjection_so.so"/>
+        </environment>
+      </runprofile>
+    </conf>
+    <conf name="Debug" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>2</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+            <option name="debug_command"
+                    value="&quot;${OUTPUT_PATH}&quot;  -Ra -g 1G -i0 -i1 -i2 -i3 -i4 -i5"/>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" </runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"  -Ra -g 1G -i0 -i1 -i2 -i3 -i4 -i5</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"  -Ra -g 1G -i0 -i1 -i2 -i3 -i4 -i5</runcommand>
+        <rundir></rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+          <variable name="LD_PRELOAD"
+                    value="/home/20190917/ioserver/injection_so/dist/Debug/GNU-Linux/libinjection_so.so"/>
         </environment>
       </runprofile>
     </conf>
